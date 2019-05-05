@@ -9,6 +9,7 @@ TagManager:
   - Freeze_Obtenible
   - Guante_Obtenible
   - PilarCaer(SoloPrueba)
+  - Ladder
   layers:
   - Default
   - TransparentFX

@@ -71,9 +71,10 @@ public class S_Player : MonoBehaviour
         Movimiento();
 
         //Cambio y/o equpamiento de items. Tanto en el hud como en... el juego?
+        if(ItemNumber>0)
         ItemSwitch();
 
-
+    Debug.Log("item number " + ItemNumber);
       //TODO ESTO LO HIZO ARKAN!!!!!!!!!!
       /* if (HasE_K == false && TieneEK == false)
        {

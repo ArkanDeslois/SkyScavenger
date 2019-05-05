@@ -4,27 +4,38 @@ using UnityEngine;
 
 public class CaePilar : MonoBehaviour
 {
-    public bool PilarCaer;
+    public bool PilarCaer = false;
+  bool triggerEntered = false;
     // Start is called before the first frame update
     void Start()
     {
-    PilarCaer = false;
+   
     }
 
     // Update is called once per frame
     void Update()
     {
-    
+    if (Input.GetKeyDown(KeyCode.Q) && triggerEntered == true)
+    {
+      PilarCaer = (true);
+      this.gameObject.SetActive(false);
     }
+  }
   private void OnTriggerEnter(Collider other)
   {
     if (other.gameObject.tag == "Player")
     {
+      triggerEntered = (true);
       Debug.Log(PilarCaer);
+    }
+  }
+  private void OnTriggerStay(Collider other)
+  {
+    if (other.tag == "Player" && S_Player.ItemNumber == 1)
+    {
       if (Input.GetKeyDown(KeyCode.Q))
       {
-        Debug.Log(PilarCaer);
-        PilarCaer = (true);
+       // this.gameObject.SetActive(false);
       }
     }
   }
