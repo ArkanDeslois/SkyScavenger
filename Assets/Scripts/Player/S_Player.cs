@@ -16,14 +16,11 @@ public class S_Player : MonoBehaviour
     //La variable bool "MiBool" checa si está tocando la escalera para cambiar valores de z en y
     private bool Climb = false;
 
-    //La variable bool "touch" checa si el player está tocando el piso (salto, incompleto)
-    private bool touch = false;
-
     //Rigidbody del player. sólo se utiliza para el salto, por ahora
-    private Rigidbody rb;
+    private Rigidbody player_RB;
 
     //Valor entero que multiplica el valor con el que se mueve el personaje
-    public int Velocidad_Mov;
+    public float velocidad_Mov;
 
     //Valor entero que multiplica el valor del salto
     public int salto;
@@ -57,7 +54,7 @@ public class S_Player : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        player_RB = GetComponent<Rigidbody>();
         ItemCode = 4;
         ItemNumber = 1;
         Item_Pico_HUD.SetActive(true);
@@ -78,6 +75,9 @@ public class S_Player : MonoBehaviour
         //Cambio y/o equpamiento de items. Tanto en el hud como en... el juego?
         ItemSwitch();
 
+
+
+
         //TODO ESTO LO HIZO ARKAN!!!!!!!!!!
        /* if (HasE_K == false && TieneEK == false)
         {
@@ -97,11 +97,6 @@ public class S_Player : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        //No funciona el único salto
-        if (other.tag == "Piso")
-        {
-            this.touch = true;
-        }
 
         //Muerte del personaje (Cae)
         if (other.tag == "Muerte")
@@ -115,6 +110,8 @@ public class S_Player : MonoBehaviour
         {
             Climb = true;
         }
+
+
 
         //Pregunta por el lado de la caja que el Player está tocando y la mueve
         //if (other.tag == "BFront")
@@ -136,6 +133,8 @@ public class S_Player : MonoBehaviour
         // {
         //     Debug.Log("Empujaría pa la derecha");
         // }
+
+
 
         //Recoge y destruye la llave azul que está en la escena
         if (other.tag == "Item_G")
@@ -185,7 +184,7 @@ public class S_Player : MonoBehaviour
         //Checa una vez que el jugador sale del collider de la "escalera"
         if (other.tag == "Ladder")
         {
-            rb.useGravity = true;
+            player_RB.useGravity = true;
             Climb = false;
         }
 
@@ -218,43 +217,22 @@ public class S_Player : MonoBehaviour
         //Condición de movimiento hacie enfrente y escalar
         if (Input.GetKey(KeyCode.W) && Climb == false)
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * Velocidad_Mov);
-            //rb.AddForce(transform.forward * empuje);
+            transform.Translate(Vector3.forward * Time.deltaTime * velocidad_Mov);
+            //player_RB.AddForce(transform.forward * empuje);
         }
         else if (Input.GetKey(KeyCode.W) && Climb == true)
         {
-            rb.useGravity = false;
+            player_RB.useGravity = false;
             //transform.Translate(Vector3.forward * Time.deltaTime * empuje);
-            transform.Translate(Vector3.up * Time.deltaTime * Velocidad_Mov);
+            transform.Translate(Vector3.up * Time.deltaTime * velocidad_Mov);
         }
 
 
         //El resto de las condiciones de movimiento
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(Vector3.back * Time.deltaTime * Velocidad_Mov);
-            //rb.AddForce(transform.forward * empuje);
-        }
+        float horizontalMov = Input.GetAxis("Horizontal") * velocidad_Mov;
+        float verticalMov = Input.GetAxis("Vertical") * velocidad_Mov;
+        player_RB.velocity = new Vector3(Input.GetAxis("Horizontal") * velocidad_Mov, player_RB.velocity.y, Input.GetAxis("Vertical") * velocidad_Mov);
 
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(Vector3.right * Time.deltaTime * Velocidad_Mov);
-        }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(Vector3.left * Time.deltaTime * Velocidad_Mov);
-            //rb.AddForce(transform.forward * empuje);
-        }
-
-
-        //Condición de salto (sin terminar)
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            touch = false;
-            rb.AddForce(transform.up * salto);
-            //Debug.Log(touch);
-        }
     }
 
     public void ItemSwitch()
