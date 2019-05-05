@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Pico_Obtenible
+  - Bomba_Obtenible
+  - Freeze_Obtenible
+  - Guante_Obtenible
+  - PilarCaer(SoloPrueba)
   layers:
   - Default
   - TransparentFX

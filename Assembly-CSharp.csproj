@@ -121,6 +121,9 @@
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Procedural Mesh\ExtrudeRandomEdges.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Runtime Editing\RuntimeEdit.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Vertex Colors\HighlightNearestFace.cs" />
+    <Compile Include="Assets\ScriptAriel(SoloPrueba)\CaePilar.cs" />
+    <Compile Include="Assets\ScriptAriel(SoloPrueba)\PilarCae.cs" />
+    <Compile Include="Assets\ScriptAriel(SoloPrueba)\PuertaDesbloqueada.cs" />
     <Compile Include="Assets\Scripts\Enemies\Provisional_Distracción.cs" />
     <Compile Include="Assets\Scripts\Player\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Player\S_Player.cs" />

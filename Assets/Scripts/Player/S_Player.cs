@@ -29,10 +29,10 @@ public class S_Player : MonoBehaviour
     //public GameObject LaCaja;
 
     //Declaración de las Items del HUD
-    public GameObject Item_Pico_HUD, Item2_Guante_HUD, Item3_Bomba_HUD, Item4_IceBeam_HUD;
+    public GameObject Pico_HUD, Guante_HUD, Item3_Bomba_HUD, IceBeam_HUD;
 
     //Número que lleva cuentas de los items que tienes encima
-    private int ItemCode;
+    private int ItemCode = 0;
 
     //Coordenadas del respawn, esto puede cambiar en un futuro si necesitamos tener varios respawns
     public Vector3 waterRespawn;
@@ -44,7 +44,7 @@ public class S_Player : MonoBehaviour
     //Itemumber 3 = Bomba
     //Itemumber 4 = IceBeam
 
-    public static int ItemNumber;
+    public static int ItemNumber =0;
 
     //Declaración del gameobject de la llave azul que se encuentra en la escena (esfera azul)
     public GameObject Item_Guantlets_esfera;
@@ -55,12 +55,10 @@ public class S_Player : MonoBehaviour
     void Start()
     {
         player_RB = GetComponent<Rigidbody>();
-        ItemCode = 4;
-        ItemNumber = 1;
-        Item_Pico_HUD.SetActive(true);
-        Item2_Guante_HUD.SetActive(false);
+        Pico_HUD.SetActive(true);
+        Guante_HUD.SetActive(false);
         Item3_Bomba_HUD.SetActive(false);
-        Item4_IceBeam_HUD.SetActive(false);
+        IceBeam_HUD.SetActive(false);
         E_K.SetActive(false);
         //GreenDoor.SetActive(true);
         //RedDoor.SetActive(true);
@@ -76,23 +74,21 @@ public class S_Player : MonoBehaviour
         ItemSwitch();
 
 
+      //TODO ESTO LO HIZO ARKAN!!!!!!!!!!
+      /* if (HasE_K == false && TieneEK == false)
+       {
+           E_K.SetActive(false);
+       }
+       if (TieneEK == true && HasE_K == false)
+       {
+           E_K.SetActive(true);
 
+       }
+       if (TieneEK == false && HasE_K == true)
+       {
+           E_K.SetActive(true);
 
-        //TODO ESTO LO HIZO ARKAN!!!!!!!!!!
-       /* if (HasE_K == false && TieneEK == false)
-        {
-            E_K.SetActive(false);
-        }
-        if (TieneEK == true && HasE_K == false)
-        {
-            E_K.SetActive(true);
-
-        }
-        if (TieneEK == false && HasE_K == true)
-        {
-            E_K.SetActive(true);
-
-        }*/
+       }*/
     }
 
     void OnTriggerStay(Collider other)
@@ -136,12 +132,6 @@ public class S_Player : MonoBehaviour
 
 
 
-        //Recoge y destruye la llave azul que está en la escena
-        if (other.tag == "Item_G")
-        {
-            ItemCode++;
-            Destroy(Item_Guantlets_esfera);
-        }
 
         if (other.tag == "RedDoor" && ItemNumber == 1)
         {
@@ -204,11 +194,23 @@ public class S_Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Water_Respawn")
-        {
-            Debug.Log("muerte por agua");
-            this.transform.position = waterRespawn;
-        }
+
+      //Muerte al player cuando toca colliders de muerte de agua
+      if (other.tag == "Water_Respawn")
+      {
+              Debug.Log("muerte por agua");
+              this.transform.position = waterRespawn;
+      }
+
+
+      //Recoge y destruye la llave azul que está en la escena
+      if (other.tag == "Pico_Obtenible")
+      {
+        ItemCode++;
+        ItemNumber++;
+        Destroy(other.gameObject);
+      }
+
     }
 
     public void Movimiento()
@@ -237,6 +239,7 @@ public class S_Player : MonoBehaviour
 
     public void ItemSwitch()
     {
+
         //Toogle entre las llaves que aparecen en el canvas, la llave que tienes equipada
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -248,34 +251,34 @@ public class S_Player : MonoBehaviour
 
             if (ItemNumber == 1)
             {
-                Item_Pico_HUD.SetActive(true);
-                Item2_Guante_HUD.SetActive(false);
+                Pico_HUD.SetActive(true);
+                Guante_HUD.SetActive(false);
                 Item3_Bomba_HUD.SetActive(false);
-                Item4_IceBeam_HUD.SetActive(false);
+                IceBeam_HUD.SetActive(false);
             }
             else if (ItemNumber == 2)
             {
 
-                Item_Pico_HUD.SetActive(false);
-                Item2_Guante_HUD.SetActive(true);
+                Pico_HUD.SetActive(false);
+                Guante_HUD.SetActive(true);
                 Item3_Bomba_HUD.SetActive(false);
-                Item4_IceBeam_HUD.SetActive(false);
+                IceBeam_HUD.SetActive(false);
 
             }
             else if (ItemNumber == 3)
             {
-                Item_Pico_HUD.SetActive(false);
-                Item2_Guante_HUD.SetActive(false);
+                Pico_HUD.SetActive(false);
+                Guante_HUD.SetActive(false);
                 Item3_Bomba_HUD.SetActive(true);
-                Item4_IceBeam_HUD.SetActive(false);
+                IceBeam_HUD.SetActive(false);
             }
 
             else if (ItemNumber == 4)
             {
-                Item_Pico_HUD.SetActive(false);
-                Item2_Guante_HUD.SetActive(false);
+                Pico_HUD.SetActive(false);
+                Guante_HUD.SetActive(false);
                 Item3_Bomba_HUD.SetActive(false);
-                Item4_IceBeam_HUD.SetActive(true);
+                IceBeam_HUD.SetActive(true);
             }
         }
     }
