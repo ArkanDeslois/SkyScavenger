@@ -10,6 +10,8 @@ TagManager:
   - Guante_Obtenible
   - PilarCaer(SoloPrueba)
   - Ladder
+  - R_O
+  - Bomb_Base
   layers:
   - Default
   - TransparentFX
