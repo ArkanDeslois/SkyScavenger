@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class S_Player : MonoBehaviour
 {
-    //COSAS DE ARKANNNNNNNNNNNNNNNNNNNNNNNNNNNNN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
-    public bool HasE_K = false;
-    public GameObject E_K;
-    public GameObject LockEK;
-    public bool TieneEK;
+    //COSAS DE ARKANNNNNNNNNNNNNNNNNNNNNNNNNNNNN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //public bool HasE_K = false;
+   //public GameObject E_K;
+    //public GameObject LockEK;
+    //public bool TieneEK;
     //public EnergyKeyLock EK;
 
 
@@ -16,26 +16,33 @@ public class S_Player : MonoBehaviour
     //La variable bool "MiBool" checa si está tocando la escalera para cambiar valores de z en y
     private bool Climb = false;
 
-    //Rigidbody del player. sólo se utiliza para el salto, por ahora
+    //Rigidbody del player. 
     private Rigidbody player_RB;
+
+    //Modelo del Player. 
+    public GameObject playerModel;
+
+    private Vector3 movDirection;
 
     //Valor entero que multiplica el valor con el que se mueve el personaje
     public float velocidad_Mov;
 
+    //Velocidad a la que gira el player cuando se mueve
+    public float velocidad_Rotation;
+
     //Valor entero que multiplica el valor del salto
     public int salto;
 
-    //Declaración del gameobject de la caja
-    //public GameObject LaCaja;
+    //Coordenadas del respawn, esto puede cambiar en un futuro si necesitamos tener varios respawns
+    public Vector3 waterRespawn;
+
+
 
     //Declaración de las Items del HUD
-    public GameObject Pico_HUD, Guante_HUD, Item3_Bomba_HUD, IceBeam_HUD;
+    public GameObject Pico_HUD, Guante_HUD, Bomba_HUD, IceBeam_HUD;
 
     //Número que lleva cuentas de los items que tienes encima
     private int ItemCode = 0;
-
-    //Coordenadas del respawn, esto puede cambiar en un futuro si necesitamos tener varios respawns
-    public Vector3 waterRespawn;
 
     //Número que lleva cuenta del item equipado actualmente
     //ItemNumber 0 = Nada
@@ -43,11 +50,7 @@ public class S_Player : MonoBehaviour
     //Itemumber 2 = Guantes
     //Itemumber 3 = Bomba
     //Itemumber 4 = IceBeam
-
     public static int ItemNumber =0;
-
-    //Declaración del gameobject de la llave azul que se encuentra en la escena (esfera azul)
-    public GameObject Item_Guantlets_esfera;
 
     //Declaración de los gameobjects de las puertas que se abren y cierran
     //public GameObject RedDoor, BlueDoor, GreenDoor;
@@ -55,11 +58,15 @@ public class S_Player : MonoBehaviour
     void Start()
     {
         player_RB = GetComponent<Rigidbody>();
-        Pico_HUD.SetActive(true);
+
+        //Está apagando los íconos del HUD
+        Pico_HUD.SetActive(false);
         Guante_HUD.SetActive(false);
-        Item3_Bomba_HUD.SetActive(false);
+        Bomba_HUD.SetActive(false);
         IceBeam_HUD.SetActive(false);
-        E_K.SetActive(false);
+
+
+        //E_K.SetActive(false);
         //GreenDoor.SetActive(true);
         //RedDoor.SetActive(true);
         //BlueDoor.SetActive(true);
@@ -74,7 +81,6 @@ public class S_Player : MonoBehaviour
         if(ItemNumber>0)
         ItemSwitch();
 
-    Debug.Log("item number " + ItemNumber);
       //TODO ESTO LO HIZO ARKAN!!!!!!!!!!
       /* if (HasE_K == false && TieneEK == false)
        {
@@ -214,7 +220,7 @@ public class S_Player : MonoBehaviour
 
     }
 
-    public void Movimiento()
+    public void Movimiento(/*Transform referenceTransform*/)
     {
 
         //Condición de movimiento hacie enfrente y escalar
@@ -232,9 +238,21 @@ public class S_Player : MonoBehaviour
 
 
         //El resto de las condiciones de movimiento
-        float horizontalMov = Input.GetAxis("Horizontal") * velocidad_Mov;
-        float verticalMov = Input.GetAxis("Vertical") * velocidad_Mov;
-        player_RB.velocity = new Vector3(Input.GetAxis("Horizontal") * velocidad_Mov, player_RB.velocity.y, Input.GetAxis("Vertical") * velocidad_Mov);
+        float horizontalMov = Input.GetAxis("Horizontal");
+        float verticalMov = Input.GetAxis("Vertical");
+        player_RB.velocity = new Vector3(horizontalMov * velocidad_Mov, player_RB.velocity.y, verticalMov * velocidad_Mov);
+
+        //movDirection = (transform.forward * horizontalMov) + (transform.right * horizontalMov);
+        //movDirection = movDirection.normalized * velocidad_Mov;
+
+        ////Inténto de rotación del player
+        //if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        //{
+        //    var newRotation = new Vector3(transform.eulerAngles.x, referenceTransform.eulerAngles.y, transform.eulerAngles.z);
+        //    playerModel.transform.rotation = Quaternion.Lerp(playerModel.transform.rotation, Quaternion.Euler(newRotation), velocidad_Rotation * Time.fixedDeltaTime);
+        //    //targetRotation = transform.rotation;
+        //}
+
 
     }
 
@@ -254,7 +272,7 @@ public class S_Player : MonoBehaviour
             {
                 Pico_HUD.SetActive(true);
                 Guante_HUD.SetActive(false);
-                Item3_Bomba_HUD.SetActive(false);
+                Bomba_HUD.SetActive(false);
                 IceBeam_HUD.SetActive(false);
             }
             else if (ItemNumber == 2)
@@ -262,7 +280,7 @@ public class S_Player : MonoBehaviour
 
                 Pico_HUD.SetActive(false);
                 Guante_HUD.SetActive(true);
-                Item3_Bomba_HUD.SetActive(false);
+                Bomba_HUD.SetActive(false);
                 IceBeam_HUD.SetActive(false);
 
             }
@@ -270,7 +288,7 @@ public class S_Player : MonoBehaviour
             {
                 Pico_HUD.SetActive(false);
                 Guante_HUD.SetActive(false);
-                Item3_Bomba_HUD.SetActive(true);
+                Bomba_HUD.SetActive(true);
                 IceBeam_HUD.SetActive(false);
             }
 
@@ -278,7 +296,7 @@ public class S_Player : MonoBehaviour
             {
                 Pico_HUD.SetActive(false);
                 Guante_HUD.SetActive(false);
-                Item3_Bomba_HUD.SetActive(false);
+                Bomba_HUD.SetActive(false);
                 IceBeam_HUD.SetActive(true);
             }
         }
