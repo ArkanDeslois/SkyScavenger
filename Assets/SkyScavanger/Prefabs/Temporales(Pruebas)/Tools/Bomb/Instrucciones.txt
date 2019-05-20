@@ -1,0 +1,11 @@
+El jugador podrá castear una bomba frente de él si es que presiona 'Q', Se supone que también deberá tener la bomba seleccionada, pero por ahora eso no está funcionando... Siempre y cuándo pesione 'Q' la casteará. 
+Si el jugador se acerca a una de las bases y presiona 'Q' entonces la bomba se colocará encima de la base en lugar de castearse frente de él.
+Las bombas están representadas por esferas verdes, ambas tienen el mismo funcionamiento. En cuanto el jugador no castee una bomba (Ya sea una sola o en la base), no podrá castear otra hasta que esta explote. El jugador podrá hacer explotar la bomba con 'B'
+El objeto que se quiera destruir con la bomba deberá tener estas especificaciones: 
+Tag: R_O
+Mesh Collider
+Box Collider - IsTrigger
+Este último box collider es el espacio donde cualquiera de las esferitas verdes (Es decir, las bombas) tendrán que tocar para poder hacer estallar ese objeto. Este Box Collider deberá acomodarse para acomodar esto. 
+Por último, no toquen nda del prefab de la bomba solita (BombaPrefab), sólo se tiene que arrastrar el prefab de la base a la escena. (BaseDBomba)
+
+ 
