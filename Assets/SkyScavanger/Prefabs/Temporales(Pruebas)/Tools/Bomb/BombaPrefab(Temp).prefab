@@ -30,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6138064165486676201}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.285671, y: 3, z: -3.0688434}
-  m_LocalScale: {x: 0.70000005, y: 0.7, z: 0.70000005}
+  m_LocalPosition: {x: -14.285671, y: 3.1901, z: -3.0688434}
+  m_LocalScale: {x: 0.41997027, y: 0.4199702, z: 0.41997027}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6138064165486676201}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -7201469295201077280, guid: 6c8c4217c767ff64f9b302bad6721642, type: 3}
 --- !u!23 &6138064165486676205
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -92,8 +92,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.7
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 1.5026726
+  m_Center: {x: 0, y: 1.1960635, z: 0}
 --- !u!54 &6138064165486676206
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -121,8 +121,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 1.2599598
+  m_Center: {x: 0, y: 1.2026701, z: 0}
 --- !u!114 &6138064165486676192
 MonoBehaviour:
   m_ObjectHideFlags: 0
