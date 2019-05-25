@@ -10,9 +10,6 @@ public class Palanca : MonoBehaviour
     //Bool para saber si está activada o desactivada la palanaca
     public bool activa = false, isOnLever;
 
-    //GameObject de la mierda que se va a mover con esta palanca
-    public Animator holderObjetivo;
-
     void Start()
     {
         //Temporal, se prenden y apagan los objetos que funcionan como la anumación de la palanaca. 
@@ -21,12 +18,19 @@ public class Palanca : MonoBehaviour
 
         //Se prende y apaga la bandera para avisarnos si la palanca está activa... En el start está desactivada
         isOnLever = false;
+
+
+
     }
 
     void Update()
     {
+        Debug.Log("isonlever: " + isOnLever);
+
         if (isOnLever == true && Input.GetKeyDown(KeyCode.Space))
         {
+            Debug.Log("dwd");
+
             //Si está desactivada entonces pasa a verdadera
             if (activa == false)
             {
@@ -59,15 +63,7 @@ public class Palanca : MonoBehaviour
             //}
         }
 
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            Debug.Log("M");
-            //agarramos el animator del holder que se va a mover
-            holderObjetivo = holderObjetivo.GetComponent<Animator>();
 
-            holderObjetivo.SetBool("Activa", true);
-            holderObjetivo.Play("CuboEnMovimiento");
-        }
     }
 
     private void OnTriggerStay(Collider other)
