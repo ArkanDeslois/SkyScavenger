@@ -4,25 +4,22 @@ using UnityEngine;
 
 public class Palanca : MonoBehaviour
 {
-    //Temporal, estas cosas son el replacement de la animación de la palanca activada o desactivada
-    public GameObject palancaActiva, palancaDesactivada;
 
     //Bool para saber si está activada o desactivada la palanaca
     public bool activa = false, isOnLever;
 
-    //
-    public Animator cubo;
+    //Declaración de Animators
+    public Animator objetivo;
+    public Animator lever;
 
     void Start()
     {
-        //Temporal, se prenden y apagan los objetos que funcionan como la anumación de la palanaca. 
-        palancaActiva.SetActive(false);
-        palancaDesactivada.SetActive(true);
-
         //Se prende y apaga la bandera para avisarnos si la palanca está activa... En el start está desactivada
         isOnLever = false;
 
-        Animator cubo = gameObject.GetComponent<Animator>();
+        //Se buscan los componentes de los animators
+        Animator objetivo = gameObject.GetComponent<Animator>();
+        Animator lever = this.gameObject.GetComponent<Animator>();
     }
 
     void Update()
@@ -38,11 +35,10 @@ public class Palanca : MonoBehaviour
                 activa = true;
 
                 //Cambio de "animación" de la palanca
-                palancaDesactivada.SetActive(false);
-                palancaActiva.SetActive(true);
+                lever.SetBool("Activacion", true);
 
                 //animacion del objeto que mueve la palanaca
-                cubo.SetBool("Activa", true);
+                objetivo.SetBool("Activa", true);
             }
             else
             {
@@ -50,35 +46,12 @@ public class Palanca : MonoBehaviour
                 activa = false;
 
                 //Cambio de "animación" de la palanca
-                palancaDesactivada.SetActive(true);
-                palancaActiva.SetActive(false);
+                lever.SetBool("Activacion", false);
 
                 //animacion en reversa del objeto que mueve la palanaca
-                cubo.SetBool("Activa", false);
+                objetivo.SetBool("Activa", false);
             }
-
-            ////Si está activa entonces pasa a falsa
-            //if (activa == true)
-            //{
-            //    //Cambio de estado del bool
-            //    activa = false;
-
-            //    //Cambio de "animación" de la palanca
-            //    palancaDesactivada.SetActive(true);
-            //    palancaActiva.SetActive(false);
-            //}
         }
-
-        //if (Input.GetKeyDown(KeyCode.L))
-        //{
-        //    cubo.SetBool("Activa", true);
-        //    //cubo.Play("CuboEnMovimiento");
-        //}
-        //if (Input.GetKeyDown(KeyCode.K))
-        //{
-        //    cubo.SetBool("Activa", false);
-        //    //cubo.Play("CuboEnMovimiento");
-        //}
     }
 
     private void OnTriggerStay(Collider other)
