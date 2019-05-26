@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/SkyScavanger/Scenes/Progra/Progra_TestScene.unity
+- path: Assets/SkyScavanger/Scenes/Niveles/Lvl1.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
