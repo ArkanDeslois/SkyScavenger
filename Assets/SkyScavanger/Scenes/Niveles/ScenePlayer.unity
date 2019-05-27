@@ -431,27 +431,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 320291383, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
-      propertyPath: Pico_HUD
-      value: 
-      objectReference: {fileID: 480233762}
-    - target: {fileID: 320291383, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
-      propertyPath: Guante_HUD
-      value: 
-      objectReference: {fileID: 480233759}
-    - target: {fileID: 320291383, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
-      propertyPath: Bomba_HUD
-      value: 
-      objectReference: {fileID: 480233761}
-    - target: {fileID: 320291383, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
-      propertyPath: IceBeam_HUD
-      value: 
-      objectReference: {fileID: 480233760}
-    - target: {fileID: 7535438933438668688, guid: fea7711b033e78c499b408e9e8776d70,
-        type: 3}
-      propertyPath: FadeoutImage
-      value: 
-      objectReference: {fileID: 1824500739}
     - target: {fileID: 4339916456224191440, guid: fea7711b033e78c499b408e9e8776d70,
         type: 3}
       propertyPath: m_UseGravity
@@ -482,6 +461,27 @@ PrefabInstance:
       propertyPath: m_GravityMultiplier
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 320291383, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
+      propertyPath: Pico_HUD
+      value: 
+      objectReference: {fileID: 480233762}
+    - target: {fileID: 320291383, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
+      propertyPath: Guante_HUD
+      value: 
+      objectReference: {fileID: 480233759}
+    - target: {fileID: 320291383, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
+      propertyPath: Bomba_HUD
+      value: 
+      objectReference: {fileID: 480233761}
+    - target: {fileID: 320291383, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
+      propertyPath: IceBeam_HUD
+      value: 
+      objectReference: {fileID: 480233760}
+    - target: {fileID: 7535438933438668688, guid: fea7711b033e78c499b408e9e8776d70,
+        type: 3}
+      propertyPath: FadeoutImage
+      value: 
+      objectReference: {fileID: 1824500739}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
 --- !u!4 &557469020 stripped
@@ -633,7 +633,7 @@ Animator:
   m_GameObject: {fileID: 1824500739}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5ebf7bcde5c455c4e9ae54f35ec69f76, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9472b6a22daaae740a812ed507a6217e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
