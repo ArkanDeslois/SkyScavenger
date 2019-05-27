@@ -374,17 +374,17 @@ PrefabInstance:
     - target: {fileID: 4339916456227078660, guid: fea7711b033e78c499b408e9e8776d70,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.4
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: 4339916456227078660, guid: fea7711b033e78c499b408e9e8776d70,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.883194
+      value: 4.95
       objectReference: {fileID: 0}
     - target: {fileID: 4339916456227078660, guid: fea7711b033e78c499b408e9e8776d70,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.9
+      value: 6.06
       objectReference: {fileID: 0}
     - target: {fileID: 4339916456227078660, guid: fea7711b033e78c499b408e9e8776d70,
         type: 3}
@@ -452,6 +452,36 @@ PrefabInstance:
       propertyPath: FadeoutImage
       value: 
       objectReference: {fileID: 1824500739}
+    - target: {fileID: 4339916456224191440, guid: fea7711b033e78c499b408e9e8776d70,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4339916456224191440, guid: fea7711b033e78c499b408e9e8776d70,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4339916456224191440, guid: fea7711b033e78c499b408e9e8776d70,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4339916456237014246, guid: fea7711b033e78c499b408e9e8776d70,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4339916456236989634, guid: fea7711b033e78c499b408e9e8776d70,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4339916456236989634, guid: fea7711b033e78c499b408e9e8776d70,
+        type: 3}
+      propertyPath: m_GravityMultiplier
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
 --- !u!4 &557469020 stripped
