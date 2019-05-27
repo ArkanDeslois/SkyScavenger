@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PilarCae : MonoBehaviour
 {
-
+  public GameObject roca;
   public CaePilar Roca;
   Animator anim;
     // Start is called before the first frame update
@@ -18,7 +18,10 @@ public class PilarCae : MonoBehaviour
     {
         if (Roca.PilarCaer == true)
     {
+     
       anim.SetInteger("State", 1);
+      roca.SetActive(false);
+      Debug.Log("Entre");
     }
     }
 }

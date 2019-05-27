@@ -150,7 +150,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4526503965758378819, guid: 315cf96f00badf6448b001b77ef1f473, type: 3}
+  - {fileID: 2100000, guid: 262913580697cc244bee883ad8dc4add, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 9030129552023619156}
   m_Layer: 0
   m_Name: BombaPrefab
-  m_TagString: Untagged
+  m_TagString: Bomba_Prefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -212,7 +212,7 @@ Transform:
   m_GameObject: {fileID: 8056272559466993092}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -14.480158, y: 1.0000001, z: -7.3509493}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 4288147793240979625}
   - {fileID: 6824119341783954742}

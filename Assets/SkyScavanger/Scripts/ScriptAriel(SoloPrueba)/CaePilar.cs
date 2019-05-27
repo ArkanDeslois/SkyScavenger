@@ -18,7 +18,8 @@ public class CaePilar : MonoBehaviour
     if (Input.GetKeyDown(KeyCode.Q) && triggerEntered == true)
     {
       PilarCaer = (true);
-      this.gameObject.SetActive(false);
+      Debug.Log(PilarCaer);
+     
     }
   }
   private void OnTriggerEnter(Collider other)
