@@ -12,6 +12,7 @@ TagManager:
   - Ladder
   - R_O
   - Bomb_Base
+  - Bomba_Prefab
   layers:
   - Default
   - TransparentFX
