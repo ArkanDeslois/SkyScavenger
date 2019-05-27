@@ -13,6 +13,8 @@ TagManager:
   - R_O
   - Bomb_Base
   - Bomba_Prefab
+  - lvl->lv2
+  - lv2->lv1
   layers:
   - Default
   - TransparentFX

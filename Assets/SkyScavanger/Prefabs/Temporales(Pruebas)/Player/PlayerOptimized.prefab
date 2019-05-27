@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4339916456237014246}
   - component: {fileID: 4339916456236989634}
   - component: {fileID: 320291383}
+  - component: {fileID: 7535438933438668688}
   - component: {fileID: 320291384}
   m_Layer: 0
   m_Name: PlayerOptimized
@@ -141,6 +142,18 @@ MonoBehaviour:
   Guante_HUD: {fileID: 0}
   Bomba_HUD: {fileID: 0}
   IceBeam_HUD: {fileID: 0}
+--- !u!114 &7535438933438668688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4339916456227370880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fe6a5967e0e3374b8d444ef48984762, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &320291384
 MonoBehaviour:
   m_ObjectHideFlags: 0
