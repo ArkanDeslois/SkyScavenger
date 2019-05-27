@@ -24,7 +24,7 @@ public class Palanca : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("isonlever: " + isOnLever);
+        //Debug.Log("isonlever: " + isOnLever);
 
         if (isOnLever == true && Input.GetKeyDown(KeyCode.Space))
         {

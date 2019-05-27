@@ -24,12 +24,12 @@ public class BombPlayer : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B) && /*S_Player.ItemNumber == 3 &&*/ active_Bomb == true)
+        if (Input.GetKeyDown(KeyCode.B) && S_Player.ItemNumber == 2 && active_Bomb == true)
         {
             Bomb_Detonation();
         }
 
-        if (Input.GetKeyDown(KeyCode.Q) && /*S_Player.ItemNumber == 3*/ active_Bomb == false && is_on_base == false)
+        if (Input.GetKeyDown(KeyCode.Q) && S_Player.ItemNumber == 2 && active_Bomb == false && is_on_base == false)
         {
             Bomb_Activation();
         }
@@ -39,8 +39,10 @@ public class BombPlayer : MonoBehaviour
     {
         if (other.tag == "Bomb_Base")
         {
-            if (Input.GetKeyDown(KeyCode.Q) && /*S_Player.ItemNumber == 3 &&*/ active_Bomb == false)
+            if (Input.GetKeyDown(KeyCode.Q) && S_Player.ItemNumber == 2 && active_Bomb == false)
             {
+                Debug.Log("dad");
+
                 is_on_base = true;
                 Bomb_Base_Activation();
             }
@@ -61,7 +63,7 @@ public class BombPlayer : MonoBehaviour
         active_Bomb = true;
         player_bomb_instance_coordinates = new Vector3(this.transform.position.x, this.transform.position.y + 1, this.transform.position.z + 1.2f);
         Instantiate(prefab_Bomb, player_bomb_instance_coordinates, Quaternion.identity);
-        bombPrefab_Placeholder = GameObject.Find("BombaPrefab(Temp)(Clone)");
+        bombPrefab_Placeholder = GameObject.Find("BombaPrefab(Clone)");
     }
 
     void Bomb_Base_Activation()

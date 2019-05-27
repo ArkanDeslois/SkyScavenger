@@ -30,20 +30,26 @@ public class S_Player : MonoBehaviour
     //Declaración de las Items del HUD
     public GameObject Pico_HUD, Guante_HUD, Bomba_HUD, IceBeam_HUD;
 
+    //Bool para checar qué item cogió primero entre bomba y guante
+    public bool secondToolCheckBombIsTrue;
+
     //Número que lleva cuentas de los items que tienes encima
     private int ItemCode = 0;
 
     //Número que lleva cuenta del item equipado actualmente
     //ItemNumber 0 = Nada
     //ItemNumber 1 = Pico
-    //Itemumber 2 = Guantes
-    //Itemumber 3 = Bomba
-    //Itemumber 4 = IceBeam
+    //Itemumber 2 = Bomba/Guantes
+    //Itemumber 3 = Freeze
+    //Itemumber 4 = Guantes/Bomba
     public static int ItemNumber = 0;
+
+    //Rigibody del player
+    private Rigidbody player_RB;
 
     void Start()
     {
-        //player_RB = GetComponent<Rigidbody>();
+        player_RB = GetComponent<Rigidbody>();
 
         //Está apagando los íconos del HUD
         Pico_HUD.SetActive(false);
@@ -67,39 +73,41 @@ public class S_Player : MonoBehaviour
         if(ItemNumber>0)
         ItemSwitch();
 
-      //TODO ESTO LO HIZO ARKAN!!!!!!!!!!
-      /* if (HasE_K == false && TieneEK == false)
-       {
-           E_K.SetActive(false);
-       }
-       if (TieneEK == true && HasE_K == false)
-       {
-           E_K.SetActive(true);
+        if (hasBomb == true && hasGuantes == false)
+        {
+            secondToolCheckBombIsTrue = true;
+        } else if (hasGuantes == true && hasBomb == false)
+        {
+            secondToolCheckBombIsTrue = false;
+        }
 
-       }
-       if (TieneEK == false && HasE_K == true)
-       {
-           E_K.SetActive(true);
+        Debug.Log("Número de tools que ha conseguido: " + ItemCode);
+        Debug.Log("Tool equipado actualmente: " + ItemNumber);
 
-       }*/
+        //TODO ESTO LO HIZO ARKAN!!!!!!!!!!
+        /* if (HasE_K == false && TieneEK == false)
+         {
+             E_K.SetActive(false);
+         }
+         if (TieneEK == true && HasE_K == false)
+         {
+             E_K.SetActive(true);
+
+         }
+         if (TieneEK == false && HasE_K == true)
+         {
+             E_K.SetActive(true);
+
+         }*/
     }
 
     void OnTriggerStay(Collider other)
     {
-
-        //Muerte del personaje (Cae)
-        if (other.tag == "Muerte")
-        {
-            this.transform.position = new Vector3(6, 1.7f, 1);
-        }
-
-
         //Pregunta si está tocando el collider que le permite escalar
         if (other.tag == "Ladder")
         {
             Climb = true;
         }
-
 
         //MIERDA DE ARKAN!!!!!!!!!!!!!!!!!!!!!!1 ALV!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         /*if (other.tag == "EnergyKey" && Input.GetKey(KeyCode.P))
@@ -144,36 +152,67 @@ public class S_Player : MonoBehaviour
       }
 
 
-      //Recoge y destruye la llave azul que está en la escena
+      //Recoge y el pico obtenible en escena
       if (other.tag == "Pico_Obtenible")
       {
         ItemCode++;
         ItemNumber++;
-            //Soluciones chacas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
-            Pico_HUD.SetActive(true);
+            ////Soluciones chacas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+            //Pico_HUD.SetActive(true);
             Destroy(other.gameObject);
+            hasPicaxe = true;
       }
+
+        //Recoge y destruye la bomba que está en la escena
+        if (other.tag == "Bomba_Obtenible")
+        {
+            ItemCode++;
+            //ItemNumber++;
+            //Soluciones chacas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+            //Pico_HUD.SetActive(true);
+            Destroy(other.gameObject);
+            hasBomb = true;
+        }
+
+        //Recoge y el Guante obtenible en escena
+        if (other.tag == "Guante_Obtenible")
+        {
+            ItemCode++;
+            //ItemNumber++;
+            ////Soluciones chacas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+            //Pico_HUD.SetActive(true);
+            Destroy(other.gameObject);
+            hasGuantes = true;
+        }
+
+        //Recoge y el freeze obtenible en escena
+        if (other.tag == "Freeze_Obtenible")
+        {
+            ItemCode++;
+            //ItemNumber++;
+            ////Soluciones chacas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+            //Pico_HUD.SetActive(true);
+            Destroy(other.gameObject);
+            hasFreeze = true;
+        }
 
     }
 
     public void Movimiento()
     {
-        //Condición de movimiento hacie enfrente y escalar
-        if (Input.GetKey(KeyCode.W) && Climb == false)
-        {
-            transform.Translate(Vector3.forward * Time.deltaTime * velocidad_Mov);
-            //player_RB.AddForce(transform.forward * empuje);
-        }
-        else if (Input.GetKey(KeyCode.W) && Climb == true)
-        {
-            //player_RB.useGravity = false;
-            transform.Translate(Vector3.up * Time.deltaTime * velocidad_Mov);
-        }
+        //if (Climb == true)
+        //{
+        //    player_RB.useGravity = false;
+        //}
+        ////Condición de movimiento hacie enfrente y escalar
+        //if (Input.GetKey(KeyCode.W) && Climb == true)
+        //{
+        //    transform.Translate(Vector3.up * Time.deltaTime * velocidad_Mov);
+        //}
     }
 
     public void ItemSwitch()
     {
-
         //Toogle entre las llaves que aparecen en el canvas, la llave que tienes equipada
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -182,7 +221,7 @@ public class S_Player : MonoBehaviour
             {
                 ItemNumber = 1;
             }
-
+            //Pico
             if (ItemNumber == 1)
             {
                 Pico_HUD.SetActive(true);
@@ -190,29 +229,46 @@ public class S_Player : MonoBehaviour
                 Bomba_HUD.SetActive(false);
                 IceBeam_HUD.SetActive(false);
             }
-            else if (ItemNumber == 2)
+
+            //Bomba
+            if (ItemNumber == 2 && secondToolCheckBombIsTrue == true)
             {
 
-                Pico_HUD.SetActive(false);
-                Guante_HUD.SetActive(true);
-                Bomba_HUD.SetActive(false);
-                IceBeam_HUD.SetActive(false);
-
-            }
-            else if (ItemNumber == 3)
-            {
                 Pico_HUD.SetActive(false);
                 Guante_HUD.SetActive(false);
                 Bomba_HUD.SetActive(true);
                 IceBeam_HUD.SetActive(false);
             }
-
-            else if (ItemNumber == 4)
+            else if(ItemNumber == 2 && secondToolCheckBombIsTrue == false)
+            {
+                Pico_HUD.SetActive(false);
+                Guante_HUD.SetActive(true);
+                Bomba_HUD.SetActive(false);
+                IceBeam_HUD.SetActive(false);
+            }
+            //Freeze
+            if (ItemNumber == 3)
             {
                 Pico_HUD.SetActive(false);
                 Guante_HUD.SetActive(false);
                 Bomba_HUD.SetActive(false);
                 IceBeam_HUD.SetActive(true);
+            }
+
+            //guante
+            if (ItemNumber == 4 && secondToolCheckBombIsTrue == true)
+            {
+                Pico_HUD.SetActive(false);
+                Guante_HUD.SetActive(true);
+                Bomba_HUD.SetActive(false);
+                IceBeam_HUD.SetActive(false);
+            }
+            else if (ItemNumber == 4 && secondToolCheckBombIsTrue == false)
+            {
+                Pico_HUD.SetActive(false);
+                Guante_HUD.SetActive(false);
+                Bomba_HUD.SetActive(true);
+                IceBeam_HUD.SetActive(false);
             }
         }
     }
