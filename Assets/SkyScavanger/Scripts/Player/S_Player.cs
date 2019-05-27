@@ -107,6 +107,9 @@ public class S_Player : MonoBehaviour
         if (other.tag == "Ladder")
         {
             Climb = true;
+            player_RB.useGravity = false;
+            //player_RB.constraints = RigidbodyConstraints.FreezePositionX;
+
         }
 
         //MIERDA DE ARKAN!!!!!!!!!!!!!!!!!!!!!!1 ALV!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -138,6 +141,10 @@ public class S_Player : MonoBehaviour
         {
             //player_RB.useGravity = true;
             Climb = false;
+            player_RB.useGravity = true;
+            //player_RB.constraints = RigidbodyConstraints.None;
+            //player_RB.constraints = RigidbodyConstraints.FreezeRotation;
+
         }
     }
 
@@ -161,17 +168,27 @@ public class S_Player : MonoBehaviour
             //Pico_HUD.SetActive(true);
             Destroy(other.gameObject);
             hasPicaxe = true;
-      }
+
+            Pico_HUD.SetActive(true);
+            Guante_HUD.SetActive(false);
+            Bomba_HUD.SetActive(false);
+            IceBeam_HUD.SetActive(false);
+        }
 
         //Recoge y destruye la bomba que está en la escena
         if (other.tag == "Bomba_Obtenible")
         {
             ItemCode++;
-            //ItemNumber++;
+            ItemNumber++;
             //Soluciones chacas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
             //Pico_HUD.SetActive(true);
             Destroy(other.gameObject);
             hasBomb = true;
+
+            Pico_HUD.SetActive(false);
+            Guante_HUD.SetActive(false);
+            Bomba_HUD.SetActive(true);
+            IceBeam_HUD.SetActive(false);
         }
 
         //Recoge y el Guante obtenible en escena
@@ -183,6 +200,8 @@ public class S_Player : MonoBehaviour
             //Pico_HUD.SetActive(true);
             Destroy(other.gameObject);
             hasGuantes = true;
+
+
         }
 
         //Recoge y el freeze obtenible en escena
@@ -200,15 +219,12 @@ public class S_Player : MonoBehaviour
 
     public void Movimiento()
     {
-        //if (Climb == true)
-        //{
-        //    player_RB.useGravity = false;
-        //}
-        ////Condición de movimiento hacie enfrente y escalar
-        //if (Input.GetKey(KeyCode.W) && Climb == true)
-        //{
-        //    transform.Translate(Vector3.up * Time.deltaTime * velocidad_Mov);
-        //}
+        //Condición de movimiento hacie enfrente y escalar
+        if (Input.GetKey(KeyCode.W) && Climb == true)
+        {
+            transform.Translate(Vector3.up * Time.deltaTime * velocidad_Mov);
+            transform.Translate(Vector3.forward * Time.deltaTime * velocidad_Mov);
+        }
     }
 
     public void ItemSwitch()
