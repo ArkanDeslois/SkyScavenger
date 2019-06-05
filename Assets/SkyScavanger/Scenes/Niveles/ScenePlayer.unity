@@ -431,27 +431,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 320291383, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
-      propertyPath: Pico_HUD
-      value: 
-      objectReference: {fileID: 480233762}
-    - target: {fileID: 320291383, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
-      propertyPath: Guante_HUD
-      value: 
-      objectReference: {fileID: 480233759}
-    - target: {fileID: 320291383, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
-      propertyPath: Bomba_HUD
-      value: 
-      objectReference: {fileID: 480233761}
-    - target: {fileID: 320291383, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
-      propertyPath: IceBeam_HUD
-      value: 
-      objectReference: {fileID: 480233760}
-    - target: {fileID: 7535438933438668688, guid: fea7711b033e78c499b408e9e8776d70,
-        type: 3}
-      propertyPath: FadeoutImage
-      value: 
-      objectReference: {fileID: 1824500739}
     - target: {fileID: 4339916456224191440, guid: fea7711b033e78c499b408e9e8776d70,
         type: 3}
       propertyPath: m_UseGravity
@@ -482,6 +461,27 @@ PrefabInstance:
       propertyPath: m_GravityMultiplier
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 320291383, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
+      propertyPath: Pico_HUD
+      value: 
+      objectReference: {fileID: 480233762}
+    - target: {fileID: 320291383, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
+      propertyPath: Guante_HUD
+      value: 
+      objectReference: {fileID: 480233759}
+    - target: {fileID: 320291383, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
+      propertyPath: Bomba_HUD
+      value: 
+      objectReference: {fileID: 480233761}
+    - target: {fileID: 320291383, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
+      propertyPath: IceBeam_HUD
+      value: 
+      objectReference: {fileID: 480233760}
+    - target: {fileID: 7535438933438668688, guid: fea7711b033e78c499b408e9e8776d70,
+        type: 3}
+      propertyPath: FadeoutImage
+      value: 
+      objectReference: {fileID: 1824500739}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
 --- !u!4 &557469020 stripped
@@ -490,6 +490,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 557469019}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1023741910 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4339916456227370880, guid: fea7711b033e78c499b408e9e8776d70,
+    type: 3}
+  m_PrefabInstance: {fileID: 557469019}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1023741919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023741910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0514c34e04349074f9673b526b1bcb23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeoutimage: {fileID: 1824500739}
 --- !u!1001 &1802251682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -597,6 +616,7 @@ GameObject:
   - component: {fileID: 1824500742}
   - component: {fileID: 1824500741}
   - component: {fileID: 1824500744}
+  - component: {fileID: 1824500745}
   m_Layer: 5
   m_Name: FadeBlack
   m_TagString: Untagged
@@ -633,7 +653,7 @@ Animator:
   m_GameObject: {fileID: 1824500739}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5ebf7bcde5c455c4e9ae54f35ec69f76, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9472b6a22daaae740a812ed507a6217e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -689,5 +709,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bc10269c2b19504ebf73671d9952169, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1824500745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824500739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82888406149e19548a2c254fa7fe4f66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
