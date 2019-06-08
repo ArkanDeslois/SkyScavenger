@@ -120,96 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &134338877
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 557469020}
-    m_Modifications:
-    - target: {fileID: -927199367670048503, guid: d461577848c33d047bea8894af2b8d6d,
-        type: 3}
-      propertyPath: m_Name
-      value: scavenger
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: d461577848c33d047bea8894af2b8d6d,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: d461577848c33d047bea8894af2b8d6d,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: d461577848c33d047bea8894af2b8d6d,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: d461577848c33d047bea8894af2b8d6d,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: d461577848c33d047bea8894af2b8d6d,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: d461577848c33d047bea8894af2b8d6d,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: d461577848c33d047bea8894af2b8d6d,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: d461577848c33d047bea8894af2b8d6d,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: d461577848c33d047bea8894af2b8d6d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: d461577848c33d047bea8894af2b8d6d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: d461577848c33d047bea8894af2b8d6d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: d461577848c33d047bea8894af2b8d6d,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.8
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: d461577848c33d047bea8894af2b8d6d,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.8
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: d461577848c33d047bea8894af2b8d6d,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2120539623906046279, guid: d461577848c33d047bea8894af2b8d6d,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 5561349426305759274, guid: 1cad2ca3e0fcb9343bf55e067bc15743,
-        type: 3}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d461577848c33d047bea8894af2b8d6d, type: 3}
 --- !u!1001 &480233758
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -371,20 +281,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerOptimized
       objectReference: {fileID: 0}
+    - target: {fileID: 4414741529072742113, guid: fea7711b033e78c499b408e9e8776d70,
+        type: 3}
+      propertyPath: fadeoutimage
+      value: 
+      objectReference: {fileID: 1824500739}
     - target: {fileID: 4339916456227078660, guid: fea7711b033e78c499b408e9e8776d70,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.06
+      value: -73.1
       objectReference: {fileID: 0}
     - target: {fileID: 4339916456227078660, guid: fea7711b033e78c499b408e9e8776d70,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.95
+      value: 1.52
       objectReference: {fileID: 0}
     - target: {fileID: 4339916456227078660, guid: fea7711b033e78c499b408e9e8776d70,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.06
+      value: -24.2
       objectReference: {fileID: 0}
     - target: {fileID: 4339916456227078660, guid: fea7711b033e78c499b408e9e8776d70,
         type: 3}
@@ -426,11 +341,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4356471976516505365, guid: fea7711b033e78c499b408e9e8776d70,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 320291383, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
+      propertyPath: Pico_HUD
+      value: 
+      objectReference: {fileID: 480233762}
+    - target: {fileID: 320291383, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
+      propertyPath: Guante_HUD
+      value: 
+      objectReference: {fileID: 480233759}
+    - target: {fileID: 320291383, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
+      propertyPath: Bomba_HUD
+      value: 
+      objectReference: {fileID: 480233761}
+    - target: {fileID: 320291383, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
+      propertyPath: IceBeam_HUD
+      value: 
+      objectReference: {fileID: 480233760}
     - target: {fileID: 4339916456224191440, guid: fea7711b033e78c499b408e9e8776d70,
         type: 3}
       propertyPath: m_UseGravity
@@ -451,38 +377,13 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4339916456236989634, guid: fea7711b033e78c499b408e9e8776d70,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4339916456236989634, guid: fea7711b033e78c499b408e9e8776d70,
-        type: 3}
-      propertyPath: m_GravityMultiplier
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 320291383, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
-      propertyPath: Pico_HUD
-      value: 
-      objectReference: {fileID: 480233762}
-    - target: {fileID: 320291383, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
-      propertyPath: Guante_HUD
-      value: 
-      objectReference: {fileID: 480233759}
-    - target: {fileID: 320291383, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
-      propertyPath: Bomba_HUD
-      value: 
-      objectReference: {fileID: 480233761}
-    - target: {fileID: 320291383, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
-      propertyPath: IceBeam_HUD
-      value: 
-      objectReference: {fileID: 480233760}
     - target: {fileID: 7535438933438668688, guid: fea7711b033e78c499b408e9e8776d70,
         type: 3}
       propertyPath: FadeoutImage
       value: 
       objectReference: {fileID: 1824500739}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7535438933438668688, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
 --- !u!4 &557469020 stripped
 Transform:
@@ -490,25 +391,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 557469019}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1023741910 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4339916456227370880, guid: fea7711b033e78c499b408e9e8776d70,
-    type: 3}
-  m_PrefabInstance: {fileID: 557469019}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1023741919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1023741910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0514c34e04349074f9673b526b1bcb23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeoutimage: {fileID: 1824500739}
 --- !u!1001 &1802251682
 PrefabInstance:
   m_ObjectHideFlags: 0
