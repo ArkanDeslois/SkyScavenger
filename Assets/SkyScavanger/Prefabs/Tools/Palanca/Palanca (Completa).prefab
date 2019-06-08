@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 1638778453532479157}
   - component: {fileID: 1638778453532479158}
   m_Layer: 0
-  m_Name: Palanca (1)
+  m_Name: Palanca (Completa)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -228,7 +228,7 @@ Animator:
   m_GameObject: {fileID: 8735899051735767412}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a7232dfdb73482a4d9cb43113febb3f7, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
