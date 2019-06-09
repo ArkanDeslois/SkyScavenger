@@ -290,7 +290,7 @@ PrefabInstance:
     - target: {fileID: 4339916456227078660, guid: fea7711b033e78c499b408e9e8776d70,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.17
+      value: -1.11
       objectReference: {fileID: 0}
     - target: {fileID: 4339916456227078660, guid: fea7711b033e78c499b408e9e8776d70,
         type: 3}
@@ -300,7 +300,7 @@ PrefabInstance:
     - target: {fileID: 4339916456227078660, guid: fea7711b033e78c499b408e9e8776d70,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 18.57
+      value: 4.74
       objectReference: {fileID: 0}
     - target: {fileID: 4339916456227078660, guid: fea7711b033e78c499b408e9e8776d70,
         type: 3}
@@ -358,6 +358,10 @@ PrefabInstance:
       propertyPath: IceBeam_HUD
       value: 
       objectReference: {fileID: 480233760}
+    - target: {fileID: 320291383, guid: fea7711b033e78c499b408e9e8776d70, type: 3}
+      propertyPath: hasPicaxe
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4339916456224191440, guid: fea7711b033e78c499b408e9e8776d70,
         type: 3}
       propertyPath: m_UseGravity

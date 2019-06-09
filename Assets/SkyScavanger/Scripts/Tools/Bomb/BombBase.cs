@@ -6,17 +6,16 @@ public class BombBase : MonoBehaviour
 {
     public GameObject bomb_base;
 
-    void Start()
-    {
-        bomb_base.SetActive(false);
-    }
+  void Start()
+  {
+    bomb_base.SetActive(false);
+  }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.B))
         {
             bomb_base.SetActive(false);
-
         }
     }
 
