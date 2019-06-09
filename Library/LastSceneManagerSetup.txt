@@ -1,5 +1,0 @@
-sceneSetups:
-- path: "Assets/SkyScavanger/Scenes/Men\xFA/MenuPrincipal.unity"
-  isLoaded: 1
-  isActive: 1
-  isSubScene: 0
