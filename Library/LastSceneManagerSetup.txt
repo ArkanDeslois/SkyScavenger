@@ -1,12 +1,4 @@
 sceneSetups:
-- path: Assets/SkyScavanger/Scenes/Niveles/Lvl2.unity
-  isLoaded: 0
-  isActive: 0
-  isSubScene: 0
-- path: Assets/SkyScavanger/Scenes/Niveles/ScenePlayer.unity
-  isLoaded: 0
-  isActive: 0
-  isSubScene: 0
 - path: "Assets/SkyScavanger/Scenes/Men\xFA/MenuPrincipal.unity"
   isLoaded: 1
   isActive: 1
