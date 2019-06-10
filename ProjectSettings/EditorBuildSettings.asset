@@ -9,12 +9,15 @@ EditorBuildSettings:
     path: Assets/SkyScavanger/Scenes/SampleScene.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
   - enabled: 1
-    path: Assets/SkyScavanger/Scenes/Niveles/Lvl1.unity
-    guid: 5b280e985ead77048bffa3cc19f66845
-  - enabled: 1
-    path: Assets/SkyScavanger/Scenes/Niveles/Lvl2.unity
-    guid: 797995e888ef61641bfa50ee15b1411b
+    path: "Assets/SkyScavanger/Scenes/Men\xFA/MenuPrincipal.unity"
+    guid: deff45a4fe7bf8a4e9c1c715a914f06f
   - enabled: 1
     path: Assets/SkyScavanger/Scenes/Niveles/ScenePlayer.unity
     guid: 176bef6e35940cf45b0145bfa7bed8d3
+  - enabled: 1
+    path: Assets/SkyScavanger/Scenes/Niveles/Lvl2.unity
+    guid: 797995e888ef61641bfa50ee15b1411b
+  - enabled: 0
+    path: Assets/SkyScavanger/Scenes/Niveles/Lvl1.unity
+    guid: 5b280e985ead77048bffa3cc19f66845
   m_configObjects: {}
