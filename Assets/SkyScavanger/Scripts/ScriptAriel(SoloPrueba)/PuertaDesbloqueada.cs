@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PuertaDesbloqueada : MonoBehaviour
 {
-  public GameObject puerta;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +18,10 @@ public class PuertaDesbloqueada : MonoBehaviour
 
   private void OnTriggerEnter(Collider other)
   {
-    Debug.Log("Hello");
     if (other.gameObject.tag == "PilarCaer(SoloPrueba)")
     {
-      puerta.SetActive(false);
+      Debug.Log("Hello?");
+      this.gameObject.SetActive(false);
     }
   }
 }

@@ -4,50 +4,31 @@ using UnityEngine;
 
 public class CaePilar : MonoBehaviour
 {
-    public bool PilarCaer = false;
-  bool triggerEntered = false;
+    //Se busca en el inspector el animator del pilar que debe caer al destruirse la roca
+    public Animator pilar;
+
     // Start is called before the first frame update
     void Start()
     {
+        Animator pilar = GetComponent<Animator>();
    
     }
 
     // Update is called once per frame
     void Update()
     {
-    if (Input.GetKeyDown(KeyCode.Q) && triggerEntered == true)
-    {
-      PilarCaer = (true);
-      Debug.Log(PilarCaer);
-     
+
     }
-  }
-  private void OnTriggerEnter(Collider other)
-  {
-    if (other.gameObject.tag == "Player")
-    {
-     // triggerEntered = (true);
-     // Debug.Log(PilarCaer);
-    }
-  }
+
   private void OnTriggerStay(Collider other)
   {
     if (other.tag == "Player" && S_Player.ItemNumber == 1)
     {
-            triggerEntered = (true);
-            Debug.Log(PilarCaer);
       if (Input.GetKeyDown(KeyCode.Q))
       {
-       // this.gameObject.SetActive(false);
+         pilar.SetBool("PillarIsFalling", true);
+                this.gameObject.SetActive(false);
       }
     }
   }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            triggerEntered = (false);
-        }
-    }
 }

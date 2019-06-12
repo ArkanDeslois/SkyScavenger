@@ -16,12 +16,11 @@ public class PilarCae : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Roca.PilarCaer == true)
-    {
-     
-      anim.SetInteger("State", 1);
-      roca.SetActive(false);
-      Debug.Log("Entre");
-    }
+        //if ()
+        //{
+        //  anim.SetInteger("State", 1);
+        //  roca.SetActive(false);
+        //  Debug.Log("Entre");
+        //}
     }
 }
