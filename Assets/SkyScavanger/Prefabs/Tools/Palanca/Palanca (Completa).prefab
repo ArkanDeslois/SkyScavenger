@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2460503025208254026}
   - component: {fileID: 5388304774572104436}
   - component: {fileID: 4568915545362480378}
+  - component: {fileID: 937879942}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -77,6 +78,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &937879942
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698968914798405517}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 3909233067320746374, guid: 1cad2ca3e0fcb9343bf55e067bc15743, type: 3}
 --- !u!1 &7322836794924209256
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,6 +167,7 @@ GameObject:
   - component: {fileID: 8021177443251025626}
   - component: {fileID: 664339340953039673}
   - component: {fileID: 1638778453227770444}
+  - component: {fileID: 1001392139}
   m_Layer: 0
   m_Name: Palanca
   m_TagString: Untagged
@@ -237,3 +253,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!64 &1001392139
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8735899051735767412}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -7204213217268780993, guid: 1cad2ca3e0fcb9343bf55e067bc15743, type: 3}
