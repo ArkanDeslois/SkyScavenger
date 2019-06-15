@@ -58,10 +58,10 @@ LightmapSettings:
     m_Resolution: 2
     m_BakeResolution: 40
     m_AtlasSize: 1024
-    m_AO: 0
+    m_AO: 1
     m_AOMaxDistance: 1
-    m_CompAOExponent: 1
-    m_CompAOExponentDirect: 0
+    m_CompAOExponent: 7
+    m_CompAOExponentDirect: 7
     m_ExtractAmbientOcclusion: 0
     m_Padding: 2
     m_LightmapParameters: {fileID: 0}
@@ -96,7 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
-  m_LightingDataAsset: {fileID: 112000004, guid: 152ead6b844b0a243ab490855250a2ef,
+  m_LightingDataAsset: {fileID: 112000004, guid: 599daf0a2b7a0c94da4aadbdc6c91c18,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -627,22 +627,22 @@ PrefabInstance:
     - target: {fileID: 2858501027044717697, guid: 1ba65196eb93e174dbc5d7d0057be0f7,
         type: 3}
       propertyPath: m_BackGroundColor.r
-      value: 0.254717
+      value: 0.0754717
       objectReference: {fileID: 0}
     - target: {fileID: 2858501027044717697, guid: 1ba65196eb93e174dbc5d7d0057be0f7,
         type: 3}
       propertyPath: m_BackGroundColor.g
-      value: 0.254717
+      value: 0.0754717
       objectReference: {fileID: 0}
     - target: {fileID: 2858501027044717697, guid: 1ba65196eb93e174dbc5d7d0057be0f7,
         type: 3}
       propertyPath: m_BackGroundColor.b
-      value: 0.254717
+      value: 0.0754717
       objectReference: {fileID: 0}
     - target: {fileID: 2858501027044717697, guid: 1ba65196eb93e174dbc5d7d0057be0f7,
         type: 3}
       propertyPath: m_ClearFlags
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2858501027044717697, guid: 1ba65196eb93e174dbc5d7d0057be0f7,
         type: 3}
