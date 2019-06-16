@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7976178809377204175}
   - component: {fileID: 7976178809377204174}
   - component: {fileID: 7976178809377204173}
+  - component: {fileID: 5807956137326265292}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -40,13 +41,13 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7976178809377204172}
   serializedVersion: 6
-  lengthInSec: 5
+  lengthInSec: 3
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -4766,8 +4767,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 673e6c289f03ca949a3f29f39bed5ff7, type: 2}
-  - {fileID: 2100000, guid: 673e6c289f03ca949a3f29f39bed5ff7, type: 2}
+  - {fileID: 2100000, guid: 6b1b4a5c2dea7ae4487da40a11e9bf2f, type: 2}
+  - {fileID: 2100000, guid: 6b1b4a5c2dea7ae4487da40a11e9bf2f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4810,3 +4811,15 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &5807956137326265292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7976178809377204172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fdf7b8719a557e4584383711fc6f623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
