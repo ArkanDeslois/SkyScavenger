@@ -22,7 +22,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Bomba
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_ShaderKeywords: _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP
+  m_ShaderKeywords: _EMISSION _NORMALMAP
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -34,19 +34,19 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 71878ae581bedc246a7e9dfd7fae96bc, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5e78dc0414c6142308e31b00c5277c7f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: ad686ff9ceba4f546965d877dfd856f1, type: 3}
+        m_Texture: {fileID: 2800000, guid: d735bde04da434b1a9c57f13eb25badc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: caed5b32e943d2b479c960c1f891a915, type: 3}
+        m_Texture: {fileID: 2800000, guid: b9dd7b7a4dbee47ad867f3f02c6feb82, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 71878ae581bedc246a7e9dfd7fae96bc, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5e78dc0414c6142308e31b00c5277c7f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
