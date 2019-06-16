@@ -24,12 +24,12 @@ public class BombPlayer : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B) && S_Player.ItemNumber == 2 && active_Bomb == true)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && S_Player.ItemNumber == 2 && active_Bomb == true)
         {
             Bomb_Detonation();
         }
 
-        if (Input.GetKeyDown(KeyCode.Q) && S_Player.ItemNumber == 2 && active_Bomb == false && is_on_base == false)
+        if (Input.GetKeyDown(KeyCode.E) && S_Player.ItemNumber == 2 && active_Bomb == false && is_on_base == false)
         {
             Bomb_Activation();
         }
@@ -39,7 +39,7 @@ public class BombPlayer : MonoBehaviour
     {
         if (other.tag == "Bomb_Base")
         {
-            if (Input.GetKeyDown(KeyCode.Q) && S_Player.ItemNumber == 2 && active_Bomb == false)
+            if (Input.GetKeyDown(KeyCode.E) && S_Player.ItemNumber == 2 && active_Bomb == false)
             {
                 Debug.Log("dad");
 

@@ -8,7 +8,7 @@ public class Picaxe_Destroy : MonoBehaviour
     {
         if (other.tag == "Player" && S_Player.ItemNumber == 1)
         {
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 this.gameObject.SetActive(false);
             }

@@ -13,7 +13,7 @@ public class BombBase : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             bomb_base.SetActive(false);
         }
