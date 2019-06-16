@@ -1312,7 +1312,7 @@ ParticleSystem:
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 50693
+        ctime1: 57054
         ctime2: 51657
         ctime3: 0
         ctime4: 0
@@ -3762,9 +3762,9 @@ ParticleSystem:
       properties: 0
       emitProbability: 1
   LightsModule:
-    enabled: 0
-    ratio: 0
-    light: {fileID: 0}
+    enabled: 1
+    ratio: 1
+    light: {fileID: 1061629528772442193, guid: df1e655b67736074d866129a63f7fcc0, type: 3}
     randomDistribution: 1
     color: 1
     range: 1
