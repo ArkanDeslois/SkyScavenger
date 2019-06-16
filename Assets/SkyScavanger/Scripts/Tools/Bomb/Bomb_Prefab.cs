@@ -18,7 +18,7 @@ public class Bomb_Prefab : MonoBehaviour
     {
         if (other.tag == "R_O")
         {
-            if (Input.GetKeyDown(KeyCode.B))
+            if (Input.GetKeyDown(KeyCode.LeftShift))
             {
                 other.gameObject.SetActive(false);
             }

@@ -26,7 +26,7 @@ public class Palanca : MonoBehaviour
     {
         //Debug.Log("isonlever: " + isOnLever);
 
-        if (isOnLever == true && Input.GetKeyDown(KeyCode.Space))
+        if (isOnLever == true && Input.GetKeyDown(KeyCode.F))
         {
             //Si está desactivada entonces pasa a verdadera
             if (activa == false)

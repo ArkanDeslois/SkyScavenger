@@ -230,7 +230,7 @@ public class S_Player : MonoBehaviour
     public void ItemSwitch()
     {
         //Toogle entre las llaves que aparecen en el canvas, la llave que tienes equipada
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             ItemNumber++;
             if (ItemNumber > ItemCode)
