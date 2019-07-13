@@ -81,8 +81,8 @@ public class S_Player : MonoBehaviour
             secondToolCheckBombIsTrue = false;
         }
 
-        Debug.Log("Número de tools que ha conseguido: " + ItemCode);
-        Debug.Log("Tool equipado actualmente: " + ItemNumber);
+        //Debug.Log("Número de tools que ha conseguido: " + ItemCode);
+        //Debug.Log("Tool equipado actualmente: " + ItemNumber);
 
         //TODO ESTO LO HIZO ARKAN!!!!!!!!!!
         /* if (HasE_K == false && TieneEK == false)
@@ -112,29 +112,87 @@ public class S_Player : MonoBehaviour
 
         }
 
-        //MIERDA DE ARKAN!!!!!!!!!!!!!!!!!!!!!!1 ALV!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        /*if (other.tag == "EnergyKey" && Input.GetKey(KeyCode.P))
-        {
-          HasE_K = true;
-          E_K.SetActive(true);
-          other.gameObject.SetActive(false);
-        }
-        if (other.tag == "EnergyKey" && Input.GetKey(KeyCode.P))
-        {
-            TieneEK = true;
-            E_K.SetActive(true);
-            other.gameObject.SetActive(false);
-        }
-       if (EK.YaBajo == true && Input.GetKeyDown(KeyCode.P))
-        {
-            LockEK.SetActive(false);
-            E_K.SetActive(true);
-            TieneEK = true;
-            HasE_K = true;
-        }*/
+    //MIERDA DE ARKAN!!!!!!!!!!!!!!!!!!!!!!1 ALV!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    /*if (other.tag == "EnergyKey" && Input.GetKey(KeyCode.P))
+    {
+      HasE_K = true;
+      E_K.SetActive(true);
+      other.gameObject.SetActive(false);
+    }
+    if (other.tag == "EnergyKey" && Input.GetKey(KeyCode.P))
+    {
+        TieneEK = true;
+        E_K.SetActive(true);
+        other.gameObject.SetActive(false);
+    }
+   if (EK.YaBajo == true && Input.GetKeyDown(KeyCode.P))
+    {
+        LockEK.SetActive(false);
+        E_K.SetActive(true);
+        TieneEK = true;
+        HasE_K = true;
+    }*/
+
+
+    //Recoge y el pico obtenible en escena
+    if (other.tag == "Pico_Obtenible" && Input.GetKeyDown(KeyCode.F))
+    {
+      ItemCode++;
+      ItemNumber++;
+      ////Soluciones chacas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+      //Pico_HUD.SetActive(true);
+      Destroy(other.gameObject);
+      hasPicaxe = true;
+
+      Pico_HUD.SetActive(true);
+      Guante_HUD.SetActive(false);
+      Bomba_HUD.SetActive(false);
+      IceBeam_HUD.SetActive(false);
     }
 
-    void OnTriggerExit(Collider other)
+    //Recoge y destruye la bomba que está en la escena
+    if (other.tag == "Bomba_Obtenible" && Input.GetKeyDown(KeyCode.F))
+    {
+      ItemCode++;
+      ItemNumber++;
+      //Soluciones chacas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+      //Pico_HUD.SetActive(true);
+      Destroy(other.gameObject);
+      hasBomb = true;
+
+      Pico_HUD.SetActive(false);
+      Guante_HUD.SetActive(false);
+      Bomba_HUD.SetActive(true);
+      IceBeam_HUD.SetActive(false);
+    }
+
+    //Recoge y el Guante obtenible en escena
+    if (other.tag == "Guante_Obtenible" && Input.GetKeyDown(KeyCode.F))
+    {
+      ItemCode++;
+      //ItemNumber++;
+      ////Soluciones chacas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+      //Pico_HUD.SetActive(true);
+      Destroy(other.gameObject);
+      hasGuantes = true;
+
+
+    }
+
+    //Recoge y el freeze obtenible en escena
+    if (other.tag == "Freeze_Obtenible")
+    {
+      ItemCode++;
+      //ItemNumber++;
+      ////Soluciones chacas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+      //Pico_HUD.SetActive(true);
+      Destroy(other.gameObject);
+      hasFreeze = true;
+    }
+
+  }
+
+  void OnTriggerExit(Collider other)
     {
         //Checa una vez que el jugador sale del collider de la "escalera"
         if (other.tag == "Ladder")
@@ -156,66 +214,14 @@ public class S_Player : MonoBehaviour
       {
               Debug.Log("muerte por agua");
               this.transform.position = waterRespawn;
+
       }
-
-
-      //Recoge y el pico obtenible en escena
-      if (other.tag == "Pico_Obtenible")
-      {
-        ItemCode++;
-        ItemNumber++;
-            ////Soluciones chacas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
-            //Pico_HUD.SetActive(true);
-            Destroy(other.gameObject);
-            hasPicaxe = true;
-
-            Pico_HUD.SetActive(true);
-            Guante_HUD.SetActive(false);
-            Bomba_HUD.SetActive(false);
-            IceBeam_HUD.SetActive(false);
-        }
-
-        //Recoge y destruye la bomba que está en la escena
-        if (other.tag == "Bomba_Obtenible")
-        {
-            ItemCode++;
-            ItemNumber++;
-            //Soluciones chacas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
-            //Pico_HUD.SetActive(true);
-            Destroy(other.gameObject);
-            hasBomb = true;
-
-            Pico_HUD.SetActive(false);
-            Guante_HUD.SetActive(false);
-            Bomba_HUD.SetActive(true);
-            IceBeam_HUD.SetActive(false);
-        }
-
-        //Recoge y el Guante obtenible en escena
-        if (other.tag == "Guante_Obtenible")
-        {
-            ItemCode++;
-            //ItemNumber++;
-            ////Soluciones chacas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
-            //Pico_HUD.SetActive(true);
-            Destroy(other.gameObject);
-            hasGuantes = true;
-
-
-        }
-
-        //Recoge y el freeze obtenible en escena
-        if (other.tag == "Freeze_Obtenible")
-        {
-            ItemCode++;
-            //ItemNumber++;
-            ////Soluciones chacas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
-            //Pico_HUD.SetActive(true);
-            Destroy(other.gameObject);
-            hasFreeze = true;
-        }
-
+    if (other.tag == "CheckPoint1")
+    {
+      waterRespawn = other.gameObject.transform.position;
     }
+
+  }
 
     public void Movimiento()
     {

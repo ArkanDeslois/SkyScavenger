@@ -11,7 +11,6 @@ public class CaePilar : MonoBehaviour
     void Start()
     {
         Animator pilar = GetComponent<Animator>();
-   
     }
 
     // Update is called once per frame
@@ -24,10 +23,10 @@ public class CaePilar : MonoBehaviour
   {
     if (other.tag == "Player" && S_Player.ItemNumber == 1)
     {
-      if (Input.GetKeyDown(KeyCode.Q))
+      if (Input.GetKeyDown(KeyCode.E))
       {
          pilar.SetBool("PillarIsFalling", true);
-                this.gameObject.SetActive(false);
+         this.gameObject.SetActive(false);
       }
     }
   }

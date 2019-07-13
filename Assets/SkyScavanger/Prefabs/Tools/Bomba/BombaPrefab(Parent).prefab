@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5e4e51bcb7a9742c7842af6772f2dbd2, type: 2}
+  - {fileID: 2100000, guid: 6d0fa082f4440bd4ebc0e36cb19dc547, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -183,7 +183,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5e4e51bcb7a9742c7842af6772f2dbd2, type: 2}
+  - {fileID: 2100000, guid: 6d0fa082f4440bd4ebc0e36cb19dc547, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -245,7 +245,7 @@ Transform:
   m_GameObject: {fileID: 8056272559466993092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 7174919896691726958}
   m_Father: {fileID: 0}
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fd93af67f64d8a4a9b2c48f3478919b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombParticle: {fileID: 7976178809377204172, guid: e78b4aec8300389459fe5d06e5154ebf,
+  bombParticle: {fileID: 7976178809377204172, guid: 5a3c61808ba45cb44bfc82bddd361a80,
     type: 3}
 --- !u!135 &2029476707232674092
 SphereCollider:
@@ -292,7 +292,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!1 &8445461039446267428
 GameObject:
@@ -352,7 +352,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5e4e51bcb7a9742c7842af6772f2dbd2, type: 2}
+  - {fileID: 2100000, guid: 6d0fa082f4440bd4ebc0e36cb19dc547, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

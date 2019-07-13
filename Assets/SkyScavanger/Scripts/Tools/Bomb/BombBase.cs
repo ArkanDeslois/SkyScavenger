@@ -16,6 +16,9 @@ public class BombBase : MonoBehaviour
     //BoolPara saber si está cerca de un objeto que puede destruir
     private bool hasExploded_BASE = false;
 
+  //Bool para saber si ya la puso en la base
+  private bool isAlreadyInBase;
+
     void Start()
     {
     bomb_base.SetActive(false);
@@ -23,14 +26,20 @@ public class BombBase : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && hasExploded_BASE == false)
+        Debug.Log("hasexploded" + hasExploded_BASE);
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && hasExploded_BASE == false && isAlreadyInBase == true)
         {
+      isAlreadyInBase = false;
+
+      Debug.Log("fsf00");
             explosionBombInstanceCoordinates_BASE = new Vector3(bomb_base.transform.position.x, bomb_base.transform.position.y + 1, bomb_base.transform.position.z);
             Instantiate(bombParticle_BASE, explosionBombInstanceCoordinates_BASE, Quaternion.Euler(-90, 0, 0));
             hasExploded_BASE = true;
             Invoke("BackToLife", 3.3f);
             bomb_base.SetActive(false);
         }
+
     }
 
     private void OnTriggerStay(Collider other)
@@ -38,11 +47,18 @@ public class BombBase : MonoBehaviour
         if (other.tag == "Player" && BombPlayer.is_on_base == true)
         {
             bomb_base.SetActive(true);
+            isAlreadyInBase = true;
         }
     }
 
     void BackToLife ()
     {
         hasExploded_BASE = false;
+
     }
+
+  void deactive()
+  {
+    bomb_base.SetActive(false);
+  }
 }
