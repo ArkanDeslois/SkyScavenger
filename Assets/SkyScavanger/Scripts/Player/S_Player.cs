@@ -150,15 +150,17 @@ public class S_Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
       //Muerte al player cuando toca colliders de muerte de agua
-      if (other.tag == "Water_Respawn")
+      if (other.tag == "Death_Respawn")
       {
               Debug.Log("muerte por agua");
               this.transform.position = waterRespawn;
       }
 
-
+      if(other.tag == "CheckPoint")
+      {
+            waterRespawn = other.gameObject.transform.position;
+      }
       //Recoge y el pico obtenible en escena
       if (other.tag == "Pico_Obtenible")
       {

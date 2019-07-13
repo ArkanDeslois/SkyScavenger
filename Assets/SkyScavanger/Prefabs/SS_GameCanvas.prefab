@@ -348,7 +348,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1747429311064184653}
+      - m_Target: {fileID: 0}
         m_MethodName: ResumeGame
         m_Mode: 1
         m_Arguments:
@@ -732,7 +732,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1747429311064184653}
+      - m_Target: {fileID: 0}
         m_MethodName: LoadGameMenu
         m_Mode: 1
         m_Arguments:
@@ -864,7 +864,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1747429311064184653}
+      - m_Target: {fileID: 0}
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -1290,7 +1290,6 @@ GameObject:
   - component: {fileID: 9091076906794048794}
   - component: {fileID: 9091076906794048793}
   - component: {fileID: 9091076906794048792}
-  - component: {fileID: 1747429311064184653}
   m_Layer: 5
   m_Name: SS_GameCanvas
   m_TagString: Untagged
@@ -1380,19 +1379,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1747429311064184653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9091076906794048799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea9dc25a0db99bb4d85c076b8595b94f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseUI: {fileID: 3464233088200255397}
 --- !u!1 &9091076907008143731
 GameObject:
   m_ObjectHideFlags: 0
