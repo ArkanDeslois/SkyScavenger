@@ -33,9 +33,12 @@ public class BombPlayer : MonoBehaviour
         {
             Bomb_Activation();
         }
-    }
 
-    private void OnTriggerStay(Collider other)
+    Debug.Log("is on base" + is_on_base);
+
+  }
+
+  private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Bomb_Base")
         {

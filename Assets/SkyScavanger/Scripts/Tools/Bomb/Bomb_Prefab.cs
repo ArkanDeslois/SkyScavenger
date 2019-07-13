@@ -23,8 +23,11 @@ public class Bomb_Prefab : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && isNearARO == false && hasExploded == false)
+
+
+    if (Input.GetKeyDown(KeyCode.LeftShift) && isNearARO == false && hasExploded == false)
         {
+            Debug.Log("adwwa");
             explosionBombInstanceCoordinates = new Vector3(this.transform.position.x, this.transform.position.y + 1, this.transform.position.z);
             Instantiate(bombParticle, explosionBombInstanceCoordinates, Quaternion.identity);
             hasExploded = true;
