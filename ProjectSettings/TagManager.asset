@@ -13,10 +13,18 @@ TagManager:
   - R_O
   - Bomb_Base
   - Bomba_Prefab
-  - lvl->lv2
-  - lv2->lv1
   - CheckPoint1
   - Water_Respawn
+  - ObjectToExplain
+  - CheckPoint
+  - Death_Respawn
+  - Bomb_Explotion
+  - Enemy
+  - Recurso_Jade
+  - Recurso_Sapphire
+  - Recurso_Ruby
+  - ResourceChest
+  - UpgradeSpot
   layers:
   - Default
   - TransparentFX

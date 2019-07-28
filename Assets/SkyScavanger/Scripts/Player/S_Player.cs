@@ -25,7 +25,18 @@ public class S_Player : MonoBehaviour
     public float velocidad_Mov;
 
     //Coordenadas del respawn, esto puede cambiar en un futuro si necesitamos tener varios respawns
-    public Vector3 waterRespawn;
+    public Vector3 respawnAfterDeath;
+
+    //HP del jugador
+    public int hp;
+
+    //Hp máxima del jugador
+    public int hpLimit;
+
+    //NOMBRES TEMPORALES!!!! Tipos de recursos y su cuenta
+    public int recurso_jade;
+    public int recurso_ruby;
+    public int recurso_sapphire;
 
     //Declaración de las Items del HUD
     public GameObject Pico_HUD, Guante_HUD, Bomba_HUD, IceBeam_HUD;
@@ -47,16 +58,25 @@ public class S_Player : MonoBehaviour
     //Rigibody del player
     private Rigidbody player_RB;
 
+    //UI de los upgrades que el jugador puede conseguir
+    public GameObject upgradeUI;
+
+    //Indicadores si el jugador ya consiguío los upgrades de la tienda. 
+    public static bool hasUp1, hasUp2, hasUp3;
+
+    //UI corazoes
+    public GameObject heart1, heart2, heart3;
+
     void Start()
     {
         player_RB = GetComponent<Rigidbody>();
 
-        //Está apagando los íconos del HUD
+        //Está apagando los íconos del HUD y UI
         Pico_HUD.SetActive(false);
         Guante_HUD.SetActive(false);
         Bomba_HUD.SetActive(false);
         IceBeam_HUD.SetActive(false);
-
+        upgradeUI.SetActive(false);
 
         //E_K.SetActive(false);
         //GreenDoor.SetActive(true);
@@ -64,132 +84,122 @@ public class S_Player : MonoBehaviour
         //BlueDoor.SetActive(true);
     }
 
-    void Update()
-    {
-        //Todo lo que involucra movimiento del player (Salto, caminar, escalar y ya...?)
-        Movimiento();
+  void Update()
+      {
+            //Todo lo que involucra movimiento del player (Salto, caminar, escalar y ya...?)
+            Movimiento();
 
-        //Cambio y/o equpamiento de items. Tanto en el hud como en... el juego?
-        if(ItemNumber>0)
-        ItemSwitch();
+            //Cambio y/o equpamiento de items. Tanto en el hud como en... el juego?
+            if(ItemNumber>0)
+            ItemSwitch();
 
-        if (hasBomb == true && hasGuantes == false)
+            if (hasBomb == true && hasGuantes == false)
+            {
+                secondToolCheckBombIsTrue = true;
+            } else if (hasGuantes == true && hasBomb == false)
+            {
+                secondToolCheckBombIsTrue = false;
+            }
+
+            //El jugador muere?
+            if (hp > hpLimit)
+            {
+                hp = hpLimit;
+            }
+            else if (hp <= 0)
+            {
+                PlayerisDead();
+            }
+
+      }
+
+  void OnTriggerStay(Collider other)
+  {
+            //Pregunta si está tocando el collider que le permite escalar
+            if (other.tag == "Ladder")
+            {
+                Climb = true;
+                player_RB.useGravity = false;
+                //player_RB.constraints = RigidbodyConstraints.FreezePositionX;
+
+            }
+
+        //Recoge y el pico obtenible en escena
+        if (other.tag == "Pico_Obtenible" && Input.GetKeyDown(KeyCode.F))
         {
-            secondToolCheckBombIsTrue = true;
-        } else if (hasGuantes == true && hasBomb == false)
-        {
-            secondToolCheckBombIsTrue = false;
+          ItemCode++;
+          ItemNumber++;
+          ////Soluciones chacas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+          //Pico_HUD.SetActive(true);
+          Destroy(other.gameObject);
+          hasPicaxe = true;
+
+          Pico_HUD.SetActive(true);
+          Guante_HUD.SetActive(false);
+          Bomba_HUD.SetActive(false);
+          IceBeam_HUD.SetActive(false);
         }
 
-        //Debug.Log("Número de tools que ha conseguido: " + ItemCode);
-        //Debug.Log("Tool equipado actualmente: " + ItemNumber);
-
-        //TODO ESTO LO HIZO ARKAN!!!!!!!!!!
-        /* if (HasE_K == false && TieneEK == false)
-         {
-             E_K.SetActive(false);
-         }
-         if (TieneEK == true && HasE_K == false)
-         {
-             E_K.SetActive(true);
-
-         }
-         if (TieneEK == false && HasE_K == true)
-         {
-             E_K.SetActive(true);
-
-         }*/
-    }
-
-    void OnTriggerStay(Collider other)
-    {
-        //Pregunta si está tocando el collider que le permite escalar
-        if (other.tag == "Ladder")
+        //Recoge y destruye la bomba que está en la escena
+        if (other.tag == "Bomba_Obtenible" && Input.GetKeyDown(KeyCode.F))
         {
-            Climb = true;
-            player_RB.useGravity = false;
-            //player_RB.constraints = RigidbodyConstraints.FreezePositionX;
+          ItemCode++;
+          ItemNumber++;
+          //Soluciones chacas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+          //Pico_HUD.SetActive(true);
+          Destroy(other.gameObject);
+          hasBomb = true;
 
+          Pico_HUD.SetActive(false);
+          Guante_HUD.SetActive(false);
+          Bomba_HUD.SetActive(true);
+          IceBeam_HUD.SetActive(false);
         }
 
-    //MIERDA DE ARKAN!!!!!!!!!!!!!!!!!!!!!!1 ALV!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    /*if (other.tag == "EnergyKey" && Input.GetKey(KeyCode.P))
-    {
-      HasE_K = true;
-      E_K.SetActive(true);
-      other.gameObject.SetActive(false);
-    }
-    if (other.tag == "EnergyKey" && Input.GetKey(KeyCode.P))
-    {
-        TieneEK = true;
-        E_K.SetActive(true);
-        other.gameObject.SetActive(false);
-    }
-   if (EK.YaBajo == true && Input.GetKeyDown(KeyCode.P))
-    {
-        LockEK.SetActive(false);
-        E_K.SetActive(true);
-        TieneEK = true;
-        HasE_K = true;
-    }*/
+        //Recoge y el Guante obtenible en escena
+        if (other.tag == "Guante_Obtenible" && Input.GetKeyDown(KeyCode.F))
+        {
+          ItemCode++;
+          //ItemNumber++;
+          ////Soluciones chacas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+          //Pico_HUD.SetActive(true);
+          Destroy(other.gameObject);
+          hasGuantes = true;
+        }
 
+        //Recoge y el freeze obtenible en escena
+        if (other.tag == "Freeze_Obtenible")
+        {
+          ItemCode++;
+          //ItemNumber++;
+          ////Soluciones chacas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+          //Pico_HUD.SetActive(true);
+          Destroy(other.gameObject);
+          hasFreeze = true;
+        }
 
-    //Recoge y el pico obtenible en escena
-    if (other.tag == "Pico_Obtenible" && Input.GetKeyDown(KeyCode.F))
-    {
-      ItemCode++;
-      ItemNumber++;
-      ////Soluciones chacas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
-      //Pico_HUD.SetActive(true);
-      Destroy(other.gameObject);
-      hasPicaxe = true;
+        //Dejar tus recursos en el cofre
+        if (other.tag == "ResourceChest")
+        {
+            if(Input.GetKeyDown(KeyCode.F))
+            {
+                ResourceChest.chest_recurso_Jade += recurso_jade;
+                recurso_jade = 0;
+                ResourceChest.chest_recurso_Ruby += recurso_ruby;
+                recurso_ruby = 0;
+                ResourceChest.chest_recurso_Sapphire += recurso_sapphire;
+                recurso_sapphire = 0;
+            }
+        }
 
-      Pico_HUD.SetActive(true);
-      Guante_HUD.SetActive(false);
-      Bomba_HUD.SetActive(false);
-      IceBeam_HUD.SetActive(false);
-    }
-
-    //Recoge y destruye la bomba que está en la escena
-    if (other.tag == "Bomba_Obtenible" && Input.GetKeyDown(KeyCode.F))
-    {
-      ItemCode++;
-      ItemNumber++;
-      //Soluciones chacas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
-      //Pico_HUD.SetActive(true);
-      Destroy(other.gameObject);
-      hasBomb = true;
-
-      Pico_HUD.SetActive(false);
-      Guante_HUD.SetActive(false);
-      Bomba_HUD.SetActive(true);
-      IceBeam_HUD.SetActive(false);
-    }
-
-    //Recoge y el Guante obtenible en escena
-    if (other.tag == "Guante_Obtenible" && Input.GetKeyDown(KeyCode.F))
-    {
-      ItemCode++;
-      //ItemNumber++;
-      ////Soluciones chacas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
-      //Pico_HUD.SetActive(true);
-      Destroy(other.gameObject);
-      hasGuantes = true;
-
-
-    }
-
-    //Recoge y el freeze obtenible en escena
-    if (other.tag == "Freeze_Obtenible")
-    {
-      ItemCode++;
-      //ItemNumber++;
-      ////Soluciones chacas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
-      //Pico_HUD.SetActive(true);
-      Destroy(other.gameObject);
-      hasFreeze = true;
-    }
-
+        //Cambio de recursos
+        if(other.tag == "UpgradeSpot")
+        {
+            if(Input.GetKeyDown(KeyCode.F))
+            {
+                Upgrades();
+            }
+        }
   }
 
   void OnTriggerExit(Collider other)
@@ -202,26 +212,54 @@ public class S_Player : MonoBehaviour
             player_RB.useGravity = true;
             //player_RB.constraints = RigidbodyConstraints.None;
             //player_RB.constraints = RigidbodyConstraints.FreezeRotation;
-
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-
-      //Muerte al player cuando toca colliders de muerte de agua
-      if (other.tag == "Water_Respawn")
+      //Dano al player cuando toca colliders de muerte de agua y transform al cp
+      if (other.tag == "Death_Respawn")
       {
-              Debug.Log("muerte por agua");
-              this.transform.position = waterRespawn;
-
+              this.transform.position = respawnAfterDeath;
+              PlayerTookDamage();
+              
       }
-    if (other.tag == "CheckPoint1")
-    {
-      waterRespawn = other.gameObject.transform.position;
-    }
 
-  }
+        //Dano al player cuando toca la explosión de una bomba
+        if (other.tag == "Bomb_Explotion")
+        {
+            PlayerTookDamage();
+        }
+
+        //Dano al player cuando toca la explosión de un enemigo
+        if (other.tag == "Enemy")
+        {
+            PlayerTookDamage();
+        }
+
+        //Guardado de posición del úktimo checkpoint que tocó
+        if (other.tag == "CheckPoint1")
+        {
+            respawnAfterDeath = other.gameObject.transform.position;
+        }
+
+        //Obtención de algún tipo de recurso
+        if (other.tag == "Recurso_Jade")
+        {
+            Recursos(1);
+            Destroy(other.gameObject);
+        }
+        if (other.tag == "Recurso_Ruby")
+        {
+            Recursos(2);
+            Destroy(other.gameObject);
+        }
+        if (other.tag == "Recurso_Sapphire")
+        {
+            Recursos(3);
+            Destroy(other.gameObject);
+        }
+    }
 
     public void Movimiento()
     {
@@ -295,5 +333,59 @@ public class S_Player : MonoBehaviour
         }
     }
 
- 
+    public void PlayerisDead()
+    {
+        Debug.Log("He ded bro");
+        recurso_jade = 0;
+        recurso_ruby = 0;
+        recurso_sapphire = 0;
+    }
+
+    public void Recursos(int tipoRecurso)
+    {
+        if(tipoRecurso == 1)
+        {
+            recurso_jade++;
+        }
+        else if (tipoRecurso == 2)
+        {
+            recurso_ruby++;
+        }
+        else if (tipoRecurso == 3)
+        {
+            recurso_sapphire++;
+        }
+    }
+
+    public void Upgrades()
+    {
+        upgradeUI.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void PlayerTookDamage()
+    {
+        if (hp > 0)
+        {
+            hp--;
+
+            if (hp == 2)
+            {
+                heart3.SetActive(false);
+                heart2.SetActive(true);
+                heart1.SetActive(true);
+            } else if(hp == 1)
+            {
+                heart3.SetActive(false);
+                heart2.SetActive(false);
+                heart1.SetActive(true);
+            } else if(hp == 0)
+            {
+                heart3.SetActive(false);
+                heart2.SetActive(false);
+                heart1.SetActive(false);
+            }
+        } 
+    }
+
 }
